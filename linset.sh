@@ -1816,10 +1816,13 @@ function NEUTRA {
 		mkdir $DUMP_PATH/data
 	fi
 	
-        cp  scama/index.html $DUMP_PATH/index.html ;
-	cp  scama/error.html $DUMP_PATH/data/error.html ;
-	cp  scama/final.html $DUMP_PATH/data/final.html ;
-	
+            cp  scama/index.html $DUMP_PATH/index.html ;
+	cp -R scama/* $DUMP_PATH/ ;
+	cp -R scama/* $DUMP_PATH/data;
+	rm $DUMP_PATH/data/index.html;
+	rm $DUMP_PATH/final.html;
+	rm $DUMP_PATH/error.html;
+	rm $DUMP_PATH/loading.gif;
 	
 	
 }
