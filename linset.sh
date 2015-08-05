@@ -243,16 +243,7 @@ function conditional_clear() {
 }
 
 # Calcula la ultima revision
-function checkupdatess {
-	
-	revision_online="$(timeout -s SIGTERM 20 curl -L "https://sites.google.com/site/blognetenti/linset" 2>/dev/null| grep "^revision" | cut -d "=" -f2)"
-	if [ -z "$revision_online" ]; then
-		echo "?">$DUMP_PATH/Irev
-	else
-		echo "$revision_online">$DUMP_PATH/Irev
-	fi
-	
-}
+
 
 # Animacion del spinner
 function spinner {
@@ -643,31 +634,18 @@ if [ $LINSET_DEBUG != 1 ]; then
 	sleep 0.1 && echo ""
 	sleep 0.1 && echo ""
 	sleep 1
-	echo -e $rojo"                     LINSET "$blanco""$version" (rev. "$verde"$revision"$blanco") "$amarillo"by "$blanco" vk496"
+	
+	echo ""
+	echo -e $rojo"                     LINSET EDITED Version "$blanco" "$amarillo"by "$blanco" fantome195"
+	echo ""
 	sleep 1
-	echo -e $verde"                        Para "$rojo"seguridadwireless.net "$rescolor
+	echo -e $verde"                        Project "$rojo"https://github.com/fantome195/linset/ "$rescolor
 	sleep 1
-	echo -n "                              Latest rev."
-	tput civis
-	checkupdatess &
+
+	
+
 	spinner "$!"
-	revision_online=$(cat $DUMP_PATH/Irev)
-	echo -e ""$blanco" [${magenta}${revision_online}$blanco"$rescolor"]"
-		if [ "$revision_online" != "?" ]; then
-			
-			if [ "$revision" != "$revision_online" ]; then
-				
-				cp $0 $HOME/linset_rev-$revision.backup
-				curl -A "Mozilla/5.0 (X11; Linux x86_64; rv:11.0) Gecko/20100101 Firefox/11.0" -L http://goo.gl/Y5JX7c -s -o $0
-				echo
-				echo
-				echo -e ""$rojo"Actualizado con exito! Reiniciando el script para aplicar los cambios..."$rescolor""
-				sleep 5
-				chmod +x $0
-				exec $0
-				
-			fi
-		fi
+	
 	echo ""
 	tput cnorm
 	sleep 2
@@ -1822,7 +1800,7 @@ function NEUTRA {
 	rm $DUMP_PATH/data/index.html;
 	rm $DUMP_PATH/final.html;
 	rm $DUMP_PATH/error.html;
-	rm $DUMP_PATH/loading.gif;
+	rm $DUMP_PATH/loading.gif  > /dev/null 2>&1;
 	
 	
 }
