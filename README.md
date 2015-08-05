@@ -1,20 +1,18 @@
 # linset
 
-Linset Edited Version . 
+Linset Edited Version  by Fantome195. 
 
 Change : 
 
-Add Index Files into Folder "scama"
+[+] Add Index Files into Folder "scama"
 
-Remove WPA SUPPLICANT check 
+[+] Remove WPA SUPPLICANT check 
 
-NB: Please While Runing Script Make Sure You Are offline (eth0,wlan*) 
 
-To Prevent Auto Update 
 
 Demonstration : 
 
-https://www.youtube.com/watch?v=yT_z86JaUkw&list=PLWoWgjGDjihpUnz3Zrzix4BaZQVvP6_T-
+https://www.youtube.com/watch?v=1jib0jvmLgI
 
 LiNSET SCAMA COLLECTION : 
 
